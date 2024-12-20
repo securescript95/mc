@@ -1,0 +1,17 @@
+/* Function to compute the cofactor matrix of a matrix */
+cofactors(m, rows, columns) := block(
+    [x:[], y, cofactor],
+    for i: 1 thru rows do (
+        y: [],
+        for j: 1 thru columns do (
+            cofactor: if mod(i + j, 2) = 0 then determinant(minor(m, i, j))
+                      else -1 * determinant(minor(m, i, j)),
+            y: cons(cofactor, y)
+        ),
+        y: reverse(y), /* Reverse row to maintain order */
+        x: cons(y, x)
+    ),
+    x: reverse(x), /* Reverse matrix to maintain order */
+    print(x)
+    return(x)
+);
