@@ -12,6 +12,6 @@ cofactors(m, rows, columns) := block(
         x: cons(y, x)
     ),
     x: reverse(x), /* Reverse matrix to maintain order */
-    print(x)
+    x:apply(matrix,x),
     return(x)
 );
